@@ -1,18 +1,26 @@
 #!/usr/bin/env python
 
-import optparse
+import argparse
 import sys
 
 
 def main():
-    parser = optparse.OptionParser()
-    (options, args) = parser.parse_args()
+    parser = argparse.ArgumentParser()
+    subparsers = parser.add_subparsers()
 
-    if not args:
-        parser.print_help()
-        sys.exit(-1)
+    new_parser = subparsers.add_parser('new')
+    new_parser.add_argument('template_name')
+    new_parser.add_argument('directory')
 
-    command, rest = args[0], args[1:]
+    install_parser = subparsers.add_parser('install')
+    install_parser.add_argument('location')
+    install_parser.add_argument('template_name')
+
+    help_parser = subparsers.add_parser('help')
+    help_parser.add_argument('command')
+
+    ns = parser.parse_args()
+    print ns
 
 
 if __name__ == '__main__':
