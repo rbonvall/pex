@@ -2,9 +2,15 @@
 
 import argparse
 import sys
-import os
+import os, os.path
 
 TEMPLATE_DIR = '{0}/.pex'.format(os.environ['HOME'])
+
+def get_installed_templates():
+    return [item
+        for item in os.listdir(TEMPLATE_DIR)
+        if os.path.isdir(item)]
+
 
 def pex_new(args):
     print 'New'
