@@ -2,6 +2,9 @@
 
 import argparse
 import sys
+import os
+
+TEMPLATE_DIR = '{0}/.pex'.format(os.environ['HOME'])
 
 def pex_new(args):
     print 'New'
@@ -14,6 +17,7 @@ def pex_install(args):
 def pex_help(args):
     print 'Help'
     print args
+    print 'Template directory:', TEMPLATE_DIR
 
 def main():
     parser = argparse.ArgumentParser()
