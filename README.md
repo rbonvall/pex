@@ -1,7 +1,7 @@
 Pex
 ===
 Pex manages template directories for your projects.
-You can see pex as a glorified `cp -R`.
+Think of pex as a glorified cp -R.
 
 Let's say you want to start a new Beamer presentation
 for presenting the results of your thesis.
